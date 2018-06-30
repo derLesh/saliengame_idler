@@ -280,7 +280,7 @@ var INJECT_start_round = function(zone, access_token, attempt_no) {
 			}
 			else {
 				console.log("%cRound successfully started in zone #" + zone, "color:green");
-				console.log(data);
+				//console.log(data);
 
 				// Set target
 				target_zone = zone;
@@ -392,9 +392,9 @@ var INJECT_end_round = function(attempt_no) {
 				}
 			}
 			else {
-				console.log("Successfully finished the round and got expected data back:");
+				console.log("%cSuccessfully finished the round and got expected data back:", "color:#00CC6A");
 				console.log("Level: ", data.response.new_level, "\nEXP: ", data.response.new_score);
-				console.log(data);
+				//console.log(data);
 
 				// Update the player info
 				INJECT_update_player_info();
