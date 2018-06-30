@@ -84,7 +84,7 @@ class BotGUI {
 
 	updateTask(status, log_to_console) {
 		if(log_to_console || log_to_console === undefined)
-			console.log(status);
+			console.log("%c" + status, "color:#f1c40f");
 		document.getElementById('salienbot_task').innerText = status;
 	}
 
@@ -279,7 +279,7 @@ var INJECT_start_round = function(zone, access_token, attempt_no) {
 				}
 			}
 			else {
-				console.log("Round successfully started in zone #" + zone);
+				console.log("%cRound successfully started in zone #" + zone, "color:green");
 				console.log(data);
 
 				// Set target
@@ -571,7 +571,14 @@ function GetBestZone() {
 	}
 
 	if(bestZoneIdx !== undefined) {
-		console.log(`${window.gGame.m_State.m_PlanetData.state.name} - Zone ${bestZoneIdx} Progress: ${window.gGame.m_State.m_Grid.m_Tiles[bestZoneIdx].Info.progress} Difficulty: ${window.gGame.m_State.m_Grid.m_Tiles[bestZoneIdx].Info.difficulty}`);
+        console.log(`%c ${window.gGame.m_State.m_PlanetData.state.name}%c - Zone: %c${bestZoneIdx}%c - Progress: %c${window.gGame.m_State.m_Grid.m_Tiles[bestZoneIdx].Info.progress}%c - Difficulty: %c${window.gGame.m_State.m_Grid.m_Tiles[bestZoneIdx].Info.difficulty} `,
+         "background: #222; color: #2ecc71;", // Emerland Color - Planet
+         "background: #222; color: #7f8c8d", // Asbestos - Plain Text
+         "background: #222; color: #e67e22;", // Carrot - Zone ID
+         "background: #222; color: #7f8c8d", // Asbestos - Plain Text
+         "background: #222; color: #d35400",
+         "background: #222; color: #7f8c8d", // Asbestos - Plain Text
+         "background: #222; color: #3498db",);
 	}
 
 	return bestZoneIdx;
